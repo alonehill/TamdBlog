@@ -3,7 +3,7 @@
 #### 项目介绍
 * TamdBlog是一款基于Typecho打造的专属主题，它的设计永远走在时代前沿！
 * [演示地址](http://code.gsav.cn/TamdBlogv1.0.0/)
-* [项目文档](http://)
+* [项目文档](https://blog.gsav.cn/244.htm)
 ---
 ![输入图片说明](dome%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260627131322_9_2.png)
 ![输入图片说明](dome%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260627131336_10_2.png)
