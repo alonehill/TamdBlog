@@ -1,6 +1,0 @@
-{
-  "version": "1.3.1",
-  "update_date": "2026-07-01",
-  "changelog": "1. 修复了移动端导航栏遮挡问题<br>2. 优化了暗黑模式的配色方案<br>3. 适配 Typecho 1.3.0",
-  "download_url": "https://gitee.com/"
-}
