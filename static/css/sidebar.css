@@ -1,0 +1,389 @@
+/**
+ * TamdBlog is a theme built on Typecho. It's vibrant and stunning, clear and elegant, with a minimalist white color scheme that makes your site the very definition of elegance
+ * 
+ * @package Tamd Blog
+ * @author KAgDesign <3150675236@qq.com,me@gsav.cn>
+ * @version 1.0.0
+ * @link http://gsav.cn/
+ *
+ * This file is part of Tamdblog.
+ * Tamdblog is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version. 
+ */
+ 
+/* 
+ * 毛玻璃侧边栏
+ */
+:root {
+    --c-post-bg: #ffffff;
+    --c-title: #0f172a;       
+    --c-body: #334155;        
+    --c-muted: #94a3b8;       
+    --c-border-light: #f1f5f9;
+    --post-width: 720px;      
+}
+
+#secondary {
+    position: sticky;
+    top: 84px;
+}
+
+#secondary .widget {
+    margin-bottom: ;
+}
+
+#secondary .widget-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b; 
+    letter-spacing: 1.5px;
+    margin: 0 0 14px 0;
+}
+
+#secondary .widget-profile {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.05); 
+}
+
+#secondary .recent-posts .post-title {
+    color: #334155;
+}
+
+#secondary .widget-tags-cloud a {
+    background: rgba(15, 23, 42, 0.04);
+    color: #475569;
+    backdrop-filter: blur(5px);
+}
+#secondary .widget-tags-cloud a:hover {
+    background: #0f172a;
+    color: #ffffff;
+}
+
+.widget-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.profile-avatar img {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px; 
+    object-fit: cover;
+    background: #f8fafc;
+}
+
+.profile-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.profile-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0 0 2px 0;
+}
+
+.profile-bio {
+    font-size: 12px;
+    color: #94a3b8;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.widget-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.widget-list a {
+    text-decoration: none;
+}
+
+.recent-posts li {
+    margin-bottom: 12px;
+}
+
+.recent-posts .post-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    text-decoration: none;
+    font-size: 13.5px;
+    line-height: 1.4;
+}
+
+.recent-posts .post-title {
+    color: #334155;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.2s;
+}
+
+.recent-posts .post-date {
+    font-size: 11px;
+    color: #94a3b8;
+    font-variant-numeric: tabular-nums; 
+    margin-top: 2px;
+}
+
+.recent-posts li:hover .post-title {
+    color: #3b82f6;
+}
+
+.widget-tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.widget-tags-cloud a {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    color: #334155;
+    background: #f1f5f9; 
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.widget-tags-cloud a:hover {
+    background: #0f172a; 
+    color: #ffffff;
+}
+/* 
+ * 侧边栏卡片群组
+ */
+.modern-sidebar-widget {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02), 0 1px 2px rgba(0, 0, 0, 0.01);
+    border: 1px solid rgba(15, 23, 42, 0.04);
+    box-sizing: border-box;
+}
+
+/* 小部件大写标题 */
+.modern-sidebar-widget .widget-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.widget-title-icon {
+    color: #64748b;
+}
+
+.modern-sidebar-widget .widget-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-item {
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+    color: #334155;
+}
+
+.comment-item:last-child {
+    margin-bottom: 0;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.comment-divider {
+    color: #cbd5e1;
+    margin: 0 2px;
+}
+
+.comment-link {
+    color: #475569;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.comment-link:hover {
+    color: #0f172a;
+}
+
+/* 
+ * 归档样式
+ */
+.archive-item {
+    margin-bottom: 10px;
+}
+
+.archive-item:last-child {
+    margin-bottom: 0;
+}
+
+.archive-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 14px;
+    background: #f8fafc;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+}
+
+.archive-date {
+    font-size: 13px;
+    font-weight: 500;
+    color: #475569;
+}
+
+.archive-arrow {
+    font-size: 12px;
+    color: #94a3b8;
+    transform: translateX(-4px);
+    opacity: 0;
+    transition: all 0.25s ease;
+}
+
+.archive-link:hover {
+    background: #f1f5f9;
+}
+.archive-link:hover .archive-date {
+    color: #0f172a;
+}
+.archive-link:hover .archive-arrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: #0f172a;
+}
+
+/*
+ * 控制中心
+ */
+.misc-item {
+    margin-bottom: 10px;
+}
+
+.misc-item:last-child {
+    margin-bottom: 0;
+}
+
+.misc-item a {
+    display: block;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: #475569;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.misc-item a:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.misc-item.admin-login a {
+    background: #0f172a;
+    color: #ffffff !important;
+}
+.misc-item.admin-login a:hover {
+    background: #1e293b;
+}
+
+.user-badge {
+    font-size: 11px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 4px;
+    font-weight: 400;
+}
+
+/* 
+ * 分类列表美化
+ */
+.modern-sidebar-widget .category-list,
+.modern-sidebar-widget .widget-list.post-list-wrapper {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modern-sidebar-widget .category-list li {
+    margin-bottom: 8px;
+}
+.modern-sidebar-widget .category-list li:last-child {
+    margin-bottom: 0;
+}
+
+.modern-sidebar-widget .category-list a {
+    display: block;
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #475569;
+    padding: 6px 12px;
+    background: #f8fafc;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.modern-sidebar-widget .category-list a:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+    padding-left: 16px;
+}
+
+.post-item {
+    margin-bottom: 12px;
+}
+.post-item:last-child {
+    margin-bottom: 0;
+}
+
+.post-link {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.post-title {
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #475569;
+    transition: color 0.2s ease;
+    
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.post-link:hover .post-title {
+    color: #0f172a;
+}
+.post-link:hover {
+    transform: translateY(-1px);
+}
