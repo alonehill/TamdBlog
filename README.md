@@ -1,37 +1,18 @@
-# TamdBlog
+# TamdBlog v1.0.0
 
-#### 介绍
-TamdBlog是一款基于Typecho打造的专属主题，它的设计永远走在时代前沿！
-
-#### 软件架构
-软件架构说明
-
+#### 项目介绍
+* TamdBlog是一款基于Typecho打造的专属主题，它的设计永远走在时代前沿！
+* [演示地址](http://)
+* [项目文档](http://)
+---
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  首先打开[Typecho官网](https://typecho.org/download)下载最新版的系统文件
+2.  创建你的网站根据教程安装Typecho[安装教程](https://docs.typecho.org/install)
+3.  完成上一步的安装后来这里下载主题文件
+4.  找到Typecho洗头到根目录找到路径/usr/themes/后，把上一步下载的主题文件在这里面解压（如果是在非官方渠道下载的需要检查一下解压后的主题文件是否有嵌套，正常的是文件夹打开后便可以看见文件，不正常的是打开后发现里面还是一个文件夹）
+5.  解压完成后打开你的网站后台（你的域名/admin）找到菜单->控制台->外观->网站外观->可以使用的外观，然后在这个主题列表中找到TamdBlog并启用后即可
 
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+#### 操作手册
+* 幻灯片默认不存在，如果你需要幻灯片需要先创建一个分类，分类名称默认是slider，你可以在网站外观中修改，然后你需要写两篇文章标题便是幻灯片标题，内容就是幻灯片描述，幻灯片的图片需要你在文章中上传图片附件或者插入图片链接，他会默认读取文章的第一张图片
