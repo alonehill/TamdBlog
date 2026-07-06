@@ -1,0 +1,12 @@
+
+
+@media (min-width: 768px) {
+    #topSlideImg {
+        transform-origin: center top;
+        will-change: transform, border-radius;
+        overflow: hidden;
+    }
+    .topslidecontent {
+        will-change: transform, opacity;
+    }
+}
