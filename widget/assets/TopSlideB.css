@@ -1,0 +1,16 @@
+
+@media (min-width: 768px) {
+    #topSlideImg {
+    
+        box-shadow: none;
+        overflow: hidden; 
+        position: relative; 
+    }
+    #topSlideImg .carousel-item {
+        transform: scale(1.05); 
+        will-change: transform, filter; 
+    }
+    .topslidecontent {
+        will-change: transform, opacity;
+    }
+}

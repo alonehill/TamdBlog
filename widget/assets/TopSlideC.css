@@ -1,0 +1,31 @@
+
+@media (min-width: 768px) {
+    #topSlideImg {
+        --night-opacity: 0;
+        --bg-translate: 0px;
+        
+        box-shadow: none;
+        overflow: hidden; 
+        position: relative; 
+    }
+    #topSlideImg .carousel-item {
+        transform: translateY(var(--bg-translate)) scale(1.02);
+        filter: brightness(calc(1 - var(--night-opacity) * 0.3));
+        will-change: transform, filter;
+    }
+    
+    #topSlideImg .carousel-item::before {
+        content: '';
+        position: absolute;
+        inset: 0; 
+        background: radial-gradient(circle at 50% 60%, rgba(255, 170, 0, 0) 10%, rgba(8, 12, 20, 0.95) 85%);
+        opacity: var(--night-opacity);
+        z-index: 2;
+        pointer-events: none;
+        will-change: opacity;
+    }
+    .topslidecontent {
+        z-index: 10;
+        will-change: transform, opacity;
+    }
+}
