@@ -1,0 +1,188 @@
+/**
+ * TamdBlog is a theme built on Typecho. It's vibrant and stunning, clear and elegant, with a minimalist white color scheme that makes your site the very definition of elegance
+ * 
+ * @package Tamd Blog
+ * @author KAg Design <3150675236@qq.com,me@gsav.cn>
+ * @version 1.0.4
+ * @link http://gsav.cn/
+ *
+ * This file is part of Tamdblog.
+ * Tamdblog is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version. 
+ */
+.links-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 64px auto;
+    padding: 60px 24px 0px;
+    animation: fadeUpIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.links-header {
+    margin-bottom: 40px;
+}
+
+.links-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+.links-content-area {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.8;
+    margin-bottom: 32px;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.link-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 14px; 
+    text-decoration: none;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.link-card:hover {
+    transform: translateY(-6px);
+    background: #0f172a; 
+    border-color: #0f172a;
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+
+.link-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 16px;
+    object-fit: cover;
+    background-color: #f1f5f9;
+
+    filter: blur(8px);
+    opacity: 0;
+    transition: filter 0.6s ease, opacity 0.6s ease;
+}
+
+.link-avatar.loaded {
+    filter: blur(0);
+    opacity: 1;
+}
+
+
+.link-info {
+    flex: 1;
+    min-width: 0; 
+}
+
+.link-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.4s ease;
+}
+
+.link-desc {
+    font-size: 12px;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.4s ease;
+}
+
+.link-card:hover .link-name {
+    color: #ffffff;
+}
+
+.link-card:hover .link-desc {
+    color: #94a3b8;
+}
+
+.link-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981; 
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%) scale(0);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-card:hover .link-dot {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+@keyframes fadeUpIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.apply-trigger-wrap { text-align: center; margin-top: 60px; }
+.btn-apply-trigger {
+    background: #0f172a; color: #fff; border: none; padding: 14px 40px;
+    border-radius: 12px; font-weight: 700; font-size: 13px; cursor: pointer;
+    transition: all 0.3s;
+}
+.btn-apply-trigger:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(15,23,42,0.2); }
+
+.apply-modal-overlay {
+    position: fixed; top: auto; left: 0; width: 100%; height: 100%;
+    background: rgba(15,23,42,0.6); backdrop-filter: blur(8px);
+    display: none; align-items: center; justify-content: center; z-index: 10000;
+}
+.apply-modal-overlay.is-active { display: flex; }
+
+.apply-modal {
+    background: #fff; width: 100%; max-width: 400px; padding: 32px;
+    border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    animation: modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.apply-modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.apply-modal-title { font-size: 14px; font-weight: 800; color: #0f172a; letter-spacing: 1px; }
+.btn-close-apply { background: none; border: none; font-size: 24px; color: #94a3b8; cursor: pointer; }
+
+.apply-form .input-group { margin-bottom: 16px; }
+.apply-form label { display: block; font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 6px; }
+.apply-form input, .apply-form textarea {
+    width: 100%; background: #f8fafc; border: 1px solid #e2e8f0;
+    padding: 12px; border-radius: 8px; font-size: 14px; outline: none; transition: all 0.2s;
+}
+.apply-form input:focus { border-color: #0f172a; background: #fff; }
+
+.btn-submit-apply {
+    width: 100%; background: #0f172a; color: #fff; border: none; padding: 14px;
+    border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 10px;
+}
+.btn-submit-apply:disabled { background: #94a3b8; cursor: not-allowed; }
+
+@keyframes modalIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
