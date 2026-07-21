@@ -1,7 +1,7 @@
 <?php 
 $fabDataStr = $this->options->fabData;
 $fabPosition = $this->options->fabPosition ? $this->options->fabPosition : 'bottom-right';
-$buttons = json_decode($fabDataStr, true);
+$buttons = json_decode((string)$fabDataStr, true);
 if (!is_array($buttons)) $buttons = [];
 ?>
 
