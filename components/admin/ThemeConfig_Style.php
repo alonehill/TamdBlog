@@ -1084,180 +1084,180 @@ input[type=\"text\"], input[type=\"password\"], textarea, select {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
-    // 创建悬浮提示框
-    var topmenu = document.createElement('div');
-    topmenu.id = 'typecho-save-topmenu';
-    topmenu.style.cssText = 'transition: opacity 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border-radius: 4px; z-index: 99; align-items: center; justify-content: space-between; display:flex; justify-content:space-between;';
+// 创建悬浮提示框
+var topmenu = document.createElement('div');
+topmenu.id = 'typecho-save-topmenu';
+topmenu.style.cssText = 'transition: opacity 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border-radius: 4px; z-index: 99; align-items: center; justify-content: space-between; display:flex; justify-content:space-between;';
+    
+topmenu.innerHTML = 
+    '<div class="mobile-sidebar">' +
+    '<input type="text" class="setting-search" placeholder="🔍 搜索设置...">' +
+    '<ul class="setting-menu" style="margin-top:10px;"></ul>' +
+    '</div>' +
+    '<div class="mobile-mask"></div>' +
+    '<button id="" class="typecho-reminder-save-btn btn primary" style="margin-left:10px;">' +
+    '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#e6e6e6" viewBox="0 0 256 256"><path d="M222.14,69.17,186.83,33.86A19.86,19.86,0,0,0,172.69,28H48A20,20,0,0,0,28,48V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V83.31A19.86,19.86,0,0,0,222.14,69.17ZM164,204H92V160h72Zm40,0H188V156a20,20,0,0,0-20-20H88a20,20,0,0,0-20,20v48H52V52H171l33,33ZM164,84a12,12,0,0,1-12,12H96a12,12,0,0,1,0-24h56A12,12,0,0,1,164,84Z"></path></svg>' +
+    '</button>' +
+    '<button type=\"button\" id=\"btn-save-backup\" class=\"btn primary\" style=\"margin-left:10px;\" onclick=\"doSaveAndBackup()\">' +
+    '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#e6e6e6" viewBox="0 0 256 256"><path d="M196.49,151.51a12,12,0,0,1-17,17L168,157v51a12,12,0,0,1-24,0V157l-11.51,11.52a12,12,0,1,1-17-17l32-32a12,12,0,0,1,17,0ZM160,36A92.08,92.08,0,0,0,79,84.37,68,68,0,1,0,72,220h28a12,12,0,0,0,0-24H72a44,44,0,0,1-1.81-87.95A91.7,91.7,0,0,0,68,128a12,12,0,0,0,24,0,68,68,0,1,1,132.6,21.29,12,12,0,1,0,22.8,7.51A92.06,92.06,0,0,0,160,36Z"></path></svg>' +
+    '</button>' +
+    '<span style="display:inline-block;">' +
+    '<button class="mobile-toggle-btn btn red" style="margin-left:10px;">'+
+    '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#e6e6e6" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H120a12,12,0,0,1,0-24h96A12,12,0,0,1,228,128ZM120,76h96a12,12,0,0,0,0-24H120a12,12,0,0,0,0,24Zm96,104H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24ZM31.51,144.49a12,12,0,0,0,17,0l40-40a12,12,0,0,0,0-17l-40-40a12,12,0,0,0-17,17L63,96,31.51,127.51A12,12,0,0,0,31.51,144.49Z"></path></svg>'+
+    '</button>' +
+    '</span>';
         
-    topmenu.innerHTML = 
-        '<div class="mobile-sidebar">' +
-        '<input type="text" class="setting-search" placeholder="🔍 搜索设置...">' +
-        '<ul class="setting-menu" style="margin-top:10px;"></ul>' +
-        '</div>' +
-        '<div class="mobile-mask"></div>' +
-        '<button id="" class="typecho-reminder-save-btn btn primary" style="margin-left:10px;">' +
-        '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#e6e6e6" viewBox="0 0 256 256"><path d="M222.14,69.17,186.83,33.86A19.86,19.86,0,0,0,172.69,28H48A20,20,0,0,0,28,48V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V83.31A19.86,19.86,0,0,0,222.14,69.17ZM164,204H92V160h72Zm40,0H188V156a20,20,0,0,0-20-20H88a20,20,0,0,0-20,20v48H52V52H171l33,33ZM164,84a12,12,0,0,1-12,12H96a12,12,0,0,1,0-24h56A12,12,0,0,1,164,84Z"></path></svg>' +
-        '</button>' +
-        '<button type=\"button\" id=\"btn-save-backup\" class=\"btn primary\" style=\"margin-left:10px;\" onclick=\"doSaveAndBackup()\">' +
-        '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#e6e6e6" viewBox="0 0 256 256"><path d="M196.49,151.51a12,12,0,0,1-17,17L168,157v51a12,12,0,0,1-24,0V157l-11.51,11.52a12,12,0,1,1-17-17l32-32a12,12,0,0,1,17,0ZM160,36A92.08,92.08,0,0,0,79,84.37,68,68,0,1,0,72,220h28a12,12,0,0,0,0-24H72a44,44,0,0,1-1.81-87.95A91.7,91.7,0,0,0,68,128a12,12,0,0,0,24,0,68,68,0,1,1,132.6,21.29,12,12,0,1,0,22.8,7.51A92.06,92.06,0,0,0,160,36Z"></path></svg>' +
-        '</button>' +
-        '<span style="display:inline-block;">' +
-        '<button class="mobile-toggle-btn btn red" style="margin-left:10px;">'+
-        '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#e6e6e6" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H120a12,12,0,0,1,0-24h96A12,12,0,0,1,228,128ZM120,76h96a12,12,0,0,0,0-24H120a12,12,0,0,0,0,24Zm96,104H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24ZM31.51,144.49a12,12,0,0,0,17,0l40-40a12,12,0,0,0,0-17l-40-40a12,12,0,0,0-17,17L63,96,31.51,127.51A12,12,0,0,0,31.51,144.49Z"></path></svg>'+
-        '</button>' +
-        '</span>';
-            
-    document.querySelector('.typecho-page-title').appendChild(topmenu);
+document.querySelector('.typecho-page-title').appendChild(topmenu);
 
 
-    // 获取表单和提交按钮 (排除文章/页面编辑器)
-    var form = document.querySelector('form:not(#write_post):not(#write_page)');
-    if (!form) return;
+// 获取表单和提交按钮 (排除文章/页面编辑器)
+var form = document.querySelector('form:not(#write_post):not(#write_page)');
+if (!form) return;
+    
+var submitBtn = form.querySelector('button[type=\"submit\"]');
+if (!submitBtn) return;
+    
+// 悬浮提示框
+var banner = document.createElement('div');
+banner.id = 'typecho-save-reminder';
+banner.style.cssText = 'display: none; opacity: 0; transition: opacity 0.3s ease; position: fixed; bottom: 30px; right: 30px; background: #fff; padding: 15px 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border-radius: 4px; z-index: 9999; border-left: 4px solid #467b96; align-items: center; justify-content: space-between; min-width: 280px;';
+    
+banner.innerHTML = 
+    '<span style=\"color:#444; font-size:14px; font-weight:bold;\">⚠️ 您有未保存的设置更改</span>' +
+    '<button id=\"\" class=\"typecho-reminder-save-btn btn primary\" style=\"margin-left:20px;\">立即保存</button><button type=\"button\" id=\"btn-save-backup\" class=\"btn primary\" style=\"margin-left:20px;\" onclick=\"doSaveAndBackup()\">保存当前设置并备份</button>';
         
-    var submitBtn = form.querySelector('button[type=\"submit\"]');
-    if (!submitBtn) return;
-        
-    // 悬浮提示框
-    var banner = document.createElement('div');
-    banner.id = 'typecho-save-reminder';
-    banner.style.cssText = 'display: none; opacity: 0; transition: opacity 0.3s ease; position: fixed; bottom: 30px; right: 30px; background: #fff; padding: 15px 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border-radius: 4px; z-index: 9999; border-left: 4px solid #467b96; align-items: center; justify-content: space-between; min-width: 280px;';
-        
-    banner.innerHTML = 
-        '<span style=\"color:#444; font-size:14px; font-weight:bold;\">⚠️ 您有未保存的设置更改</span>' +
-        '<button id=\"\" class=\"typecho-reminder-save-btn btn primary\" style=\"margin-left:20px;\">立即保存</button><button type=\"button\" id=\"btn-save-backup\" class=\"btn primary\" style=\"margin-left:20px;\" onclick=\"doSaveAndBackup()\">保存当前设置并备份</button>';
-            
-    document.body.appendChild(banner);
-        
-    var isChanged = false;
-        
-    function triggerChange(e) {
-        var tag = e.target.tagName.toLowerCase();
-        if ((tag === 'input' || tag === 'textarea' || tag === 'select') && !isChanged) {
-            isChanged = true;
-            banner.style.display = 'flex';
-            void banner.offsetWidth; 
-            banner.style.opacity = '1';
-        }
+document.body.appendChild(banner);
+    
+var isChanged = false;
+    
+function triggerChange(e) {
+    var tag = e.target.tagName.toLowerCase();
+    if ((tag === 'input' || tag === 'textarea' || tag === 'select') && !isChanged) {
+        isChanged = true;
+        banner.style.display = 'flex';
+        void banner.offsetWidth; 
+        banner.style.opacity = '1';
     }
-        
-    form.addEventListener('input', triggerChange);
-    form.addEventListener('change', triggerChange);
+}
     
-    //保存提交
-    var reminderBtns = document.querySelectorAll('.typecho-reminder-save-btn');
-    reminderBtns.forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            this.innerText = '保存中...';
-            this.style.background = '#3b677d';
-            submitBtn.click(); 
-        });
-    });
-    
+form.addEventListener('input', triggerChange);
+form.addEventListener('change', triggerChange);
 
-    // 原生提交按钮点击，隐藏提示框
-    submitBtn.addEventListener('click', function() {
-        banner.style.opacity = '0';
-        setTimeout(function() {
-            banner.style.display = 'none';
-        }, 300);
-    });
-
-    if (typeof jQuery === 'undefined') return;
-    var $ = jQuery;
-
-    /*
-    var $mainCol = $('.typecho-page-main > div[role="form"]');
-    $mainCol.removeClass('col-tb-8 col-tb-offset-2').addClass('col-tb-9');
-    */
-
-    // 插入左侧边栏和移动端按钮
-    /*
-    var sidebarHTML = `
-        <div class="col-tb-3 typecho-setting-sidebar">
-            <div class="setting-sidebar-inner">
-                <input type="text" id="setting-search" class="setting-search-box" placeholder="搜索设置项 (如: logo)...">
-                <ul id="setting-menu" class="setting-menu-list"></ul>
-            </div>
-        </div>`;
-    $mainCol.before(sidebarHTML);
-    $mainCol.prepend('<button class="mobile-menu-toggle" type="button"></button>');
-    */
-
-    // 遍历标题，分组内容，并生成菜单
-    $('.typecho-setting-title').each(function(index) {
-        var $title = $(this);
-        var id = 'setting-group-' + index;
-        $title.attr('id', id); // 赋予锚点ID
-        
-        // 生成左侧菜单项
-        $('#setting-menu').append('<li><a href=" ' + id + '">' + $title.html() + '</a></li>');
-        
-        // 将标题及紧跟的选项包裹成一个 Section
-        // 和搜索逻辑重复了，重复包裹，删除无影响
-        // $title.nextUntil('.typecho-setting-title, .typecho-option-submit').addBack().wrapAll('<div class="setting-section"></div>');
-    });
-
-    // 平滑滚动与菜单高亮
-    $('#setting-menu a').on('click', function(e) {
+//保存提交
+var reminderBtns = document.querySelectorAll('.typecho-reminder-save-btn');
+reminderBtns.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
         e.preventDefault();
-        var target = $(this).attr('href');
-        
-        // 样式切换
-        $('#setting-menu a').removeClass('active');
-        $(this).addClass('active');
-
-        // 平滑滚动
-        $('html, body').animate({
-            scrollTop: $(target).offset().top - 20
-        }, 300);
-
-        // 移动端点击后自动收起侧边栏
-        if ($(window).width() < 768) {
-            $('.typecho-setting-sidebar').removeClass('open');
-        }
+        this.innerText = '保存中...';
+        this.style.background = '#3b677d';
+        submitBtn.click(); 
     });
+});
 
-    // 移动端抽屉菜单切换
-    $('.mobile-menu-toggle').on('click', function() {
-        $('.typecho-setting-sidebar').toggleClass('open');
-    });
 
-    // 搜索过滤功能
-    $('#setting-search').on('input', function() {
-        var keyword = $(this).val().toLowerCase();
-        
-        if (keyword === '') {
-            $('.setting-section').show();
-            $('.typecho-option').show();
-            return;
-        }
+// 原生提交按钮点击，隐藏提示框
+submitBtn.addEventListener('click', function() {
+    banner.style.opacity = '0';
+    setTimeout(function() {
+        banner.style.display = 'none';
+    }, 300);
+});
 
-        // 遍历所有设置项区块
-        $('.setting-section').each(function() {
-            var $section = $(this);
-            var sectionHasMatch = false;
+if (typeof jQuery === 'undefined') return;
+var $ = jQuery;
 
-            $section.find('.typecho-option').each(function() {
-                var $option = $(this);
-                // 搜索标签文字和描述文字
-                var text = $option.find('label').text() + ' ' + $option.find('.description').text();
-                if (text.toLowerCase().indexOf(keyword) > -1) {
-                    $option.show();
-                    sectionHasMatch = true;
-                } else {
-                    $option.hide();
-                }
-            });
+/*
+var $mainCol = $('.typecho-page-main > div[role="form"]');
+$mainCol.removeClass('col-tb-8 col-tb-offset-2').addClass('col-tb-9');
+*/
 
-            // 如果该区块内没有任何匹配项，隐藏整个区块包括标题
-            if (sectionHasMatch) {
-                $section.show();
+// 插入左侧边栏和移动端按钮
+/*
+var sidebarHTML = `
+    <div class="col-tb-3 typecho-setting-sidebar">
+        <div class="setting-sidebar-inner">
+            <input type="text" id="setting-search" class="setting-search-box" placeholder="搜索设置项 (如: logo)...">
+            <ul id="setting-menu" class="setting-menu-list"></ul>
+        </div>
+    </div>`;
+$mainCol.before(sidebarHTML);
+$mainCol.prepend('<button class="mobile-menu-toggle" type="button"></button>');
+*/
+
+// 遍历标题，分组内容，并生成菜单
+$('.typecho-setting-title').each(function(index) {
+    var $title = $(this);
+    var id = 'setting-group-' + index;
+    $title.attr('id', id); // 赋予锚点ID
+    
+    // 生成左侧菜单项
+    $('#setting-menu').append('<li><a href=" ' + id + '">' + $title.html() + '</a></li>');
+    
+    // 将标题及紧跟的选项包裹成一个 Section
+    // 和搜索逻辑重复了，重复包裹，删除无影响
+    // $title.nextUntil('.typecho-setting-title, .typecho-option-submit').addBack().wrapAll('<div class="setting-section"></div>');
+});
+
+// 平滑滚动与菜单高亮
+$('#setting-menu a').on('click', function(e) {
+    e.preventDefault();
+    var target = $(this).attr('href');
+    
+    // 样式切换
+    $('#setting-menu a').removeClass('active');
+    $(this).addClass('active');
+
+    // 平滑滚动
+    $('html, body').animate({
+        scrollTop: $(target).offset().top - 20
+    }, 300);
+
+    // 移动端点击后自动收起侧边栏
+    if ($(window).width() < 768) {
+        $('.typecho-setting-sidebar').removeClass('open');
+    }
+});
+
+// 移动端抽屉菜单切换
+$('.mobile-menu-toggle').on('click', function() {
+    $('.typecho-setting-sidebar').toggleClass('open');
+});
+
+// 搜索过滤功能
+$('#setting-search').on('input', function() {
+    var keyword = $(this).val().toLowerCase();
+    
+    if (keyword === '') {
+        $('.setting-section').show();
+        $('.typecho-option').show();
+        return;
+    }
+
+    // 遍历所有设置项区块
+    $('.setting-section').each(function() {
+        var $section = $(this);
+        var sectionHasMatch = false;
+
+        $section.find('.typecho-option').each(function() {
+            var $option = $(this);
+            // 搜索标签文字和描述文字
+            var text = $option.find('label').text() + ' ' + $option.find('.description').text();
+            if (text.toLowerCase().indexOf(keyword) > -1) {
+                $option.show();
+                sectionHasMatch = true;
             } else {
-                $section.hide();
+                $option.hide();
             }
         });
+
+        // 如果该区块内没有任何匹配项，隐藏整个区块包括标题
+        if (sectionHasMatch) {
+            $section.show();
+        } else {
+            $section.hide();
+        }
     });
+});
 
     var checkJQuery = setInterval(function() {
         if (typeof window.jQuery !== 'undefined') {
